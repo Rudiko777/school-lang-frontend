@@ -1,0 +1,224 @@
+.button{
+    display: inline-block;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    border: none;
+    font-weight: 600;
+    line-height: 133%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.buttonContent{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.outlinedPurple{
+    background-color: transparent !important;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+}
+
+.outlinedPurple:hover{
+    background: var(--purple---secondry) !important;
+    border: 1px solid var(--purple---hover) !important;
+    color: var(--purple---hover) !important;
+}
+
+.outlinedPurple:hover div svg path{
+    stroke: var(--purple---hover) !important;
+}
+
+.outlinedPurple:active{
+    color: var(--purple---active) !important;
+    border: 2px solid var(--purple---focus);
+    background: var(--purple---secondry);
+}
+
+.outlinedPurple:active div svg path{
+    stroke: var(--purple---active) !important;
+}
+
+/*.outlinedPurpleHover path{*/
+/*    stroke: var(--purple---hover) !important;*/
+/*}*/
+
+
+
+.outlinedRed{
+    background-color: transparent !important;
+    border: 1px solid var(--red---main);
+    color: var(--red---main);
+}
+
+.outlinedRed:hover {
+    border: 1px solid var(--red---hover) !important;
+    background: var(--red---secondry) !important;
+    color: var(--red---hover) !important;
+}
+
+.outlinedRed:hover div svg path{
+    stroke: var(--red---hover) !important;
+}
+
+.outlinedBlue{
+    background-color: transparent !important;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+}
+
+.ghostPurple{
+    background-color: transparent !important;
+    color: var(--purple);
+}
+
+.ghostPurple:hover{
+    color: var(--purple---hover) !important;
+}
+
+.ghostPurple:hover div svg path{
+    stroke: var(--purple---hover) !important;
+}
+
+.ghostPurple:active{
+    border: 2px solid var(--purple---focus);
+    color: var(--purple---active) !important;
+}
+
+.ghostPurple:active div svg path{
+    stroke: var(--purple---active) !important;
+}
+
+.activePurpleGhost{
+    border: none;
+    color: var(--purple---active);
+}
+
+.activePurpleGhost div svg path{
+    stroke: var(--purple---active);
+}
+
+.ghostRed{
+    background-color: transparent !important;
+    color: var(--red---main);
+}
+
+.ghostBlue{
+    background-color: transparent !important;
+    color: var(--blue);
+}
+
+.colorPurple{
+    background-color: var(--purple);
+}
+
+.colorPurple:hover{
+    background-color: var(--purple---hover);
+}
+
+.colorRed:hover{
+    background-color: var(--red---hover);
+}
+
+.colorRed:active{
+    background-color: var(--red---active);
+    outline: 2px solid var(--red---focus);
+}
+
+.activeRedContained{
+    background: var(--red---active) !important;
+}
+
+.colorPurple:active{
+    outline: 2px solid var(--purple---focus);
+    background: var(--purple---active);
+}
+
+.colorRed{
+    background-color: var(--red---main);
+}
+
+.colorBlue{
+    background-color: var(--blue);
+}
+
+.largeButton{
+    padding: 18px 28px;
+    font-size: 18px;
+}
+
+.mediumButton{
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.smallButton{
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.purpleSVG path{
+    stroke: var(--purple);
+}
+
+.redSVG path{
+    stroke: var(--red---main);
+}
+
+.blueSVG path{
+    stroke: var(--blue);
+}
+
+.disabledSVG path{
+    stroke: var(--grey-active);
+}
+
+.disabledContained{
+    border: 2px solid var(--grey-active);
+    background-color: var(--grey-active);
+}
+
+.disabledOutlined{
+    border: 2px solid var(--grey-active);
+    background-color: transparent !important;
+    color: var(--grey-active);
+}
+
+.disabledGhost{
+    border: none;
+    background-color: transparent !important;
+    color: var(--grey-active);
+}
+
+.activePurpleContained{
+    outline: 1px solid var(--purple---active);
+    background: var(--purple---active);
+}
+
+.activePurpleOutlined{
+    background: var(--purple---secondry) !important;
+    color: var(--purple---active) !important;
+    border: 1px solid var(--purple---active);
+}
+
+.activePurpleOutlined div svg path{
+    stroke: var(--purple---active);
+}
+
+
+/*Сброс стилей для disabled кнопок*/
+.disabledContained:hover,
+.disabledOutlined:hover,
+.disabledGhost:hover{
+    text-decoration: none;
+    cursor: default;
+}
+
+.disabledContained:hover{
+    background-color: var(--grey-active);
+}
