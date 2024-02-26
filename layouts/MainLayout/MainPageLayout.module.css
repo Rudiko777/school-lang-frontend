@@ -13,7 +13,8 @@
     grid-area: header;
 }
 
-.mainWrapper{
+.main{
+    padding: 100px 0 150px;
     grid-area: main
 }
 

@@ -1,6 +1,21 @@
 @font-face {
-  font-family: "Gilroy";
-  src: url("../fonts/gilroy-regular.ttf") ;
+  font-family: "Gilroy-Regular";
+  src: url("../fonts/gilroy-regular.ttf");
+}
+
+@font-face {
+  font-family: "Gilroy-Black";
+  src: url("../fonts/gilroy-black.ttf");
+}
+
+@font-face {
+  font-family: "Gilroy-Heavy";
+  src: url("../fonts/gilroy-heavy.ttf");
+}
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("../fonts/gilroy-bold.ttf");
 }
 
 :root {
@@ -57,8 +72,13 @@
   --dark-green-main: #2aaa37;
   --dark-green-secondary: #d4eed7;
   --white: #ffffff;
-  --font-family: "Gilroy", sans-serif;
-  --second_family: "Lato", sans-serif;
+  --header-link: #333;
+  --font-family: "Gilroy-Regular", sans-serif;
+  --ff-gilroy-black: "Gilroy-Black", sans-serif;
+  --ff-gilroy-heavy: "Gilroy-Heavy", sans-serif;
+  --ff-gilroy-bold: "Gilroy-Bold", sans-serif;
+  --second-family: "Lato", sans-serif;
+  --third-family: "Montserrat", sans-serif;
 }
 
 button[disabled]{
@@ -132,4 +152,10 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+.splide__pagination__page{
+  background-color: var(--purple---border) !important;
+  width: 12px !important;
+  height: 12px !important;
 }

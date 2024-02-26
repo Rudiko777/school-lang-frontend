@@ -1,0 +1,18 @@
+.header{
+    display: grid;
+    grid-template-columns: 120px 2fr auto;
+    padding: 24px 50px;
+    border-bottom: 1px solid var(--purple---secondry);
+}
+
+.loginBtn{
+    padding: 12px 18px !important;
+    justify-self: flex-end;
+}
+
+.navigation{
+    display: flex;
+    align-self: center;
+    gap: 15px;
+    margin-left: 55px;
+}

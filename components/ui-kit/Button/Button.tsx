@@ -3,7 +3,7 @@ import React, {JSX, useCallback, useState} from 'react';
 import styles from './Button.module.css'
 import cn from 'classnames'
 import {ButtonProps} from "@/components/ui-kit/Button/Button.props";
-import Plus from '../../../images/button/plus.svg'
+import Plus from '@/public/button/plus.svg'
 
 const Button = ({children, size, typeBtn, action, color, disabled, className, ...props}: ButtonProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(false)
@@ -32,6 +32,7 @@ const Button = ({children, size, typeBtn, action, color, disabled, className, ..
             [styles.activeRedContained]: active && color === 'red' && typeBtn === 'contained',
         })} disabled={disabled}
                 onClick={() => setActive(!active)}
+                type={'button'}
                 // onMouseOver={() => setHover(true)}
                 // onMouseOut={() => setHover(false)}
                 {...props}>

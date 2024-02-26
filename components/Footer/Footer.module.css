@@ -1,0 +1,145 @@
+.footerContainer{
+    padding: 77px 0 100px;
+    background-color: var(--purple---active);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: auto minmax(320px, 1440px) auto;
+    grid-template-areas:
+    '. footerContent .';
+}
+
+.footerContent{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+    grid-area: footerContent;
+}
+
+.company{
+    display: flex;
+    flex-direction: column;
+}
+
+.text{
+    opacity: 0.8;
+}
+
+.p{
+    max-width: 292px;
+    margin-top: 30px;
+}
+
+.sponsors{
+    margin-top: 44px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.List{
+    margin-top: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.Item{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: #fff;
+    opacity: 0.8;
+    transition: all .3s ease-in-out;
+}
+.contact{
+    display: inline-block;
+    margin-top: 18px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 113%;
+    letter-spacing: 0.01em;
+    color: #fff;
+}
+
+.mailContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.socials{
+    margin-top: 39px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.mail{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 113%;
+    letter-spacing: 0.01em;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.geolocation{
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 113%;
+    letter-spacing: 0.01em;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.copyright{
+    color: var(--white);
+    background-color: var(--title);
+    padding: 12px 0;
+    display: grid;
+    grid-template-columns: auto minmax(320px, 1440px) auto;
+    grid-template-areas:
+    '. content .';
+}
+
+.copyrightContent{
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.copyrightTitle{
+    opacity: 0.8;
+}
+
+.safety{
+    display: flex;
+    gap: 40px;
+}
+
+.safety a{
+    opacity: 0.8;
+    transition: all .3s ease-in-out;
+}
+
+
+
+@media (hover: hover) {
+    .Item:hover{
+        opacity: 1;
+    }
+    .safety a:hover{
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .Item:active{
+        opacity: 1;
+    }
+    .safety a:hover{
+        opacity: 1;
+    }
+}

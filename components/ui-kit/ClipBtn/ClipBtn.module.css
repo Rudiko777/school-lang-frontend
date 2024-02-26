@@ -1,0 +1,46 @@
+.clipBtnBlock{
+    display: inline-block;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.clipDescription{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 133%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    color: var(--text);
+    transition: all .3s ease-in-out;
+}
+
+@media (hover: hover) {
+    .container:hover .clipDescription{
+        color: var(--title);
+    }
+    .container:hover .btn path{
+        fill: var(--red---main);
+    }
+}
+
+.btn{
+    cursor: pointer;
+}
+
+@media (hover: none) {
+    .container:active .clipDescription{
+        color: var(--title);
+    }
+    .container:active .btn path{
+        fill: var(--red---main);
+    }
+}
+
+.btn path{
+    transition: all .3s ease-in-out;
+}
