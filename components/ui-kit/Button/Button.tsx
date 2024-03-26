@@ -4,6 +4,7 @@ import styles from './Button.module.css'
 import cn from 'classnames'
 import {ButtonProps} from "@/components/ui-kit/Button/Button.props";
 import Plus from '@/public/button/plus.svg'
+import Link from "next/link";
 
 const Button = ({children, size, typeBtn, action, color, disabled, className, ...props}: ButtonProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(false)

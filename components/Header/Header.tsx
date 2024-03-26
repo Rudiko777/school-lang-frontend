@@ -28,9 +28,11 @@ const Header = ({className, ...props}: HeaderProps): JSX.Element => {
                     Ещё
                 </Submenu>
             </nav>
-            <Button size={'medium'} typeBtn={'contained'} color={'purple'} className={styles.loginBtn}>
-                Войти
-            </Button>
+            <Link href={'/login'}>
+                <Button size={'medium'} typeBtn={'contained'} color={'purple'} className={styles.loginBtn}>
+                    Войти
+                </Button>
+            </Link>
         </header>
     );
 };

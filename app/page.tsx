@@ -10,6 +10,7 @@ import Ptag from "@/components/ui-kit/P/Ptag";
 import CourseItem from "@/components/CourseItem/CourseItem";
 import ShortListCourses from "@/components/ShortListCouses/ShortListCourses";
 import SliderCourses from "@/components/SliderCourses/SliderCourses";
+import Input from "@/components/Input/Input";
 
 function Home(): JSX.Element {
   return (
@@ -111,6 +112,11 @@ function Home(): JSX.Element {
         <Button size={'medium'} typeBtn={'contained'} color={'purple'}>
             Начать обучение
         </Button>
+        <Input placeholder={'Placeholder'} inputSize={'large'} state={'default'} type={'text'} label={"Label"} hint={"hint"}/>
+        <Input placeholder={'Placeholder'} inputSize={'small'} state={'default'} type={'text'} label={"Label"} hint={"hint"}/>
+        <Input placeholder={'Placeholder'} inputSize={'large'} state={'default'} type={'password'} label={"Label"} hint={"hint"}/>
+        <Input placeholder={'Placeholder'} inputSize={'large'} state={'errorFilled'} type={'text'} label={"Label"} hint={"hint"}/>
+        <Input placeholder={'Placeholder'} inputSize={'large'} state={'successFilled'} type={'text'} label={"Label"} hint={"hint"}/>
     </>
   );
 }

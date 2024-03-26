@@ -1,0 +1,53 @@
+.block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 102px;
+    height: 100vh;
+}
+
+.loginTitle{
+    max-width: 389px;
+}
+
+.loginActions{
+    margin-top: 40px;
+    max-width: 407px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.continue,
+.registrationButton{
+    width: 100%;
+}
+
+.or{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #828282;
+}
+
+.or .orLeft{
+    content: '';
+    width: 156px;
+    height: 1px;
+    background-color: #828282;
+}
+
+.or .orRight{
+    content: '';
+    width: 156px;
+    height: 1px;
+    background-color: #828282;
+}
+
+.socialBlock{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

@@ -1,0 +1,146 @@
+.inputWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputContainer{
+    position: relative;
+    width: 407px;
+}
+
+.input{
+    background-color: #f2f2f2;;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+}
+
+.input::placeholder{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: var(--grey-active);
+}
+
+.default:hover{
+    outline: 1px solid var(--purple---border);
+}
+
+.default:focus{
+    outline: 2px solid var(--purple);
+}
+
+.errorFilled{
+    outline: 1px solid var(--red---main);
+}
+
+.errorFilled:hover{
+    outline: 1px solid var(--red---border);
+}
+
+.errorFilled:focus{
+    outline: 2px solid var(--red---main);
+}
+
+.successFilled{
+    outline: 1px solid var(--dark-green-main);
+}
+
+.inputLarge{
+    padding: 18px 52px 18px 18px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: var(--title);
+}
+
+.inputSmall{
+    padding: 12px 52px 12px 18px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: var(--title);
+}
+
+.label{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 160%;
+    letter-spacing: 0.01em;
+    color: var(--title);
+}
+
+.description{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 185%;
+    letter-spacing: 0.01em;
+    color: var(--text);
+}
+
+.focusDefaultInput{
+    color: var(--purple);
+}
+
+.focusErrorInput{
+    color: var(--red---main);
+}
+
+.errorFilledHint{
+    color: var(--red---main);
+}
+
+.hoverErrorInput + .eyeIcon path{
+    stroke: var(--red---border);
+}
+
+.successFilledHint{
+    color: var(--dark-green-main);
+}
+
+.focusSuccessInput{
+    color: var(--dark-green-main);
+}
+
+.hoverSuccessInput{
+    outline: 1px solid var(--dark-green-border);
+}
+
+.hoverSuccessInput + .eyeIcon path{
+    stroke: var(--dark-green-border);
+}
+
+.eyeIcon{
+    cursor: pointer;
+    position: absolute;
+    right: 18px;
+}
+
+.eyeIconLarge{
+    top: 18px;
+}
+
+.eyeIconSmall{
+    top: 12px;
+}
+
+.hintErrorInputHover{
+    color: var(--red---hover);
+}
+
+.hintSuccessInputHover{
+    color: var(--dark-green-hover);
+}
+
+.UnclickableIcon{
+    cursor: auto;
+}

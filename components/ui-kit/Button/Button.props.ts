@@ -1,5 +1,6 @@
 import {ButtonHTMLAttributes, DetailedHTMLProps, ReactNode} from "react";
 import {StaticImageData} from "next/image";
+import {Url} from "url";
 
 export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
     children: ReactNode,
@@ -7,5 +8,5 @@ export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTML
     typeBtn: 'contained' | 'outlined' | 'ghost'
     action?: 'simple' | 'add',
     color?: 'purple' | 'red' | 'blue',
-    disabled?: boolean
+    disabled?: boolean,
 }

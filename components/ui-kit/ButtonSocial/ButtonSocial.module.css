@@ -1,0 +1,36 @@
+.buttonSocial{
+    border: 1px solid var(--grey-active);
+    border-radius: 8px;
+    padding: 16px 0;
+    width: 407px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    transition: 0.3s linear all;
+    cursor: pointer;
+}
+
+.block{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.block > span{
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 178%;
+    color: var(--black);
+    transition: 0.3s linear all;
+}
+
+
+
+.buttonSocial:hover{
+    border: 1px solid var(--blue---button-hover);
+}
+
+.buttonSocial:hover .block span{
+    color: var(--blue---button-hover);
+}

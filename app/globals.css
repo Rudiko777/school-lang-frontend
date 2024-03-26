@@ -40,6 +40,7 @@
   --blue---focus: #b9daf0;
   --blue---hover: #51a2d9;
   --blue---main: #2e90d1;
+  --blue---button-hover: #0d4cd3;
   --blue---secondary: #def1ff;
   --grey-active: #bdbdbd;
   --grey-border: #f1f1f1;
@@ -72,6 +73,7 @@
   --dark-green-main: #2aaa37;
   --dark-green-secondary: #d4eed7;
   --white: #ffffff;
+  --black: #000000;
   --header-link: #333;
   --font-family: "Gilroy-Regular", sans-serif;
   --ff-gilroy-black: "Gilroy-Black", sans-serif;
