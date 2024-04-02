@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ReduxProvider from "@/redux/ReduxProvider/ReduxProvider";
-
+import {PersistGate} from "redux-persist/integration/react";
+import {persister} from "@/redux/store";
 
 export const metadata: Metadata = {
   title: "School-Languages",
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+            {children}
+        </ReduxProvider>
       </body>
     </html>
   );
