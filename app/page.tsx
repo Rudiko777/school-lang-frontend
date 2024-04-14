@@ -1,18 +1,28 @@
+'use client'
 import Image from "next/image";
 import styles from "./page.module.css";
-import Button from "@/components/ui-kit/Button/Button";
+import Button from "@/shared/ui-kit/Button/Button";
 import {withMainPageLayout} from "@/layouts/MainLayout/MainPageLayout";
-import ClipBtn from "@/components/ui-kit/ClipBtn/ClipBtn";
+import ClipBtn from "@/shared/ui-kit/ClipBtn/ClipBtn";
 import promo from '../public/mainPage/Promo.png'
 import {JSX} from "react";
-import Htag from "@/components/ui-kit/Htag/Htag";
-import Ptag from "@/components/ui-kit/P/Ptag";
-import CourseItem from "@/components/CourseItem/CourseItem";
-import ShortListCourses from "@/components/ShortListCouses/ShortListCourses";
-import SliderCourses from "@/components/SliderCourses/SliderCourses";
-import Input from "@/components/Input/Input";
+import Htag from "@/shared/ui-kit/Htag/Htag";
+import Ptag from "@/shared/ui-kit/P/Ptag";
+import CourseItem from "@/entities/CourseItem/CourseItem";
+import ShortListCourses from "@/widgets/ShortListCouses/ShortListCourses";
+import SliderCourses from "@/widgets/SliderCourses/SliderCourses";
+import Input from "@/shared/ui-kit/Input/Input";
+import {useGetTargetAudienceQuery} from "@/processes/redux/api/TargetAudienceAPI";
+import Audience from "@/entities/Audience/Audience";
+import CheckBox from "@/shared/ui-kit/CheckBox/CheckBox";
+import LevelFilter from "@/features/LevelFilter/LevelFilter";
+import ButtonAccordion from "@/shared/ui-kit/ButtonAccordion/ButtonAccordion";
+import Accordion from "@/widgets/Accordion/Accordion";
+import AccordionItem from "@/widgets/Accordion/Accordion";
 
 function Home(): JSX.Element {
+  const {data, isLoading, isError} = useGetTargetAudienceQuery()
+
   return (
     <>
         <section className={styles.promo}>
@@ -31,7 +41,7 @@ function Home(): JSX.Element {
                     </ClipBtn>
                 </div>
             </div>
-            <Image src={promo} alt={'PromoImage'}/>
+            <Image className={styles.imgPromo} src={promo} alt={'PromoImage'}/>
         </section>
         <section className={styles.shortCourses}>
             <div className={styles.shortCoursesHeader}>
@@ -58,11 +68,16 @@ function Home(): JSX.Element {
                     </Button>
                 </div>
                 <div className={styles.whoWillSuitAdv}>
-                    ADV
+                    {data?.map((el, idx) => {
+                        return(
+                            <Audience key={idx} id={el.id} whom={el.whom} description={el.description} image={el.image}/>
+                        )
+                    })}
                 </div>
             </div>
         </section>
-        3123
+        <LevelFilter/>
+        <Accordion/>
         <CourseItem
             title={"Немецкий для начального уровня"}
             language={"Немецкий"}

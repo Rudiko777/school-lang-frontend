@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: #828282;
+}
+
+.wrapper{
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 8px 0;
+    padding-left: 39px;
+}
+
+.radio{
+    appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    outline: 1px solid #BC92C6;
+    border-radius: 50%;
+}
+
+.wrapper:hover > .radio{
+    outline-color: var(--purple);
+}
+
+.radio:checked{
+    outline-color: var(--purple);
+}
+
+.radio:checked::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--purple);
+    border-radius: 50%;
+    left: 4px;
+    top: 4px;
+}

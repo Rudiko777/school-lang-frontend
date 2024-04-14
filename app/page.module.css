@@ -43,8 +43,8 @@
 }
 
 .whoWillSuitContent{
-    display: grid;
-    grid-template-columns: minmax(320px, 453px) 1fr;
+    display: flex;
+    gap: 40px;
     padding-top: 100px;
 }
 
@@ -68,4 +68,21 @@
 
 .whoWillSuitBtn{
     margin-top: 40px;
+}
+
+.whoWillSuitInfo{
+    max-width: 24rem;
+}
+
+.whoWillSuitAdv{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+@media screen and (max-width: 1440px){
+    .imgPromo{
+        width: 70%;
+        height: 80%;
+    }
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './page.module.css'
 import Logo from '../../public/login/logo.svg'
-import ButtonSocial from "@/components/ui-kit/ButtonSocial/ButtonSocial";
+import ButtonSocial from "@/shared/ui-kit/ButtonSocial/ButtonSocial";
 import Link from "next/link";
 import door from '../../public/login/door.png'
 import Image from "next/image";
-import Htag from "@/components/ui-kit/Htag/Htag";
-import Ptag from "@/components/ui-kit/P/Ptag";
-import Input from "@/components/Input/Input";
-import Button from "@/components/ui-kit/Button/Button";
+import Htag from "@/shared/ui-kit/Htag/Htag";
+import Ptag from "@/shared/ui-kit/P/Ptag";
+import Input from "@/shared/ui-kit/Input/Input";
+import Button from "@/shared/ui-kit/Button/Button";
 
 const Page = () => {
     return (
@@ -22,11 +22,12 @@ const Page = () => {
                         Вход в кабинет
                     </Htag>
                     <Ptag type={'medium'}>
-                        На указанный номер поступит звонок с номера +7 (999) 999-ХХ-ХХ
+                        Введите данные учётной записи
                     </Ptag>
                 </div>
                 <div className={styles.loginActions}>
-                    <Input placeholder={'+ 7 900 123-45-67'} inputSize={'large'} state={'default'} type={'tel'} label={'Телефон'}/>
+                    <Input placeholder={'Test или test@mail.ru'} inputSize={'small'} state={'default'} type={'tel'} label={'Логин или e-mail'}/>
+                    <Input placeholder={'Password'} inputSize={'small'} state={'default'} type={'password'} label={'Пароль'}/>
                     <Button size={'large'} typeBtn={'contained'} color={'purple'} className={styles.continue}>
                         Продолжить
                     </Button>

@@ -1,8 +1,8 @@
 import React, {FunctionComponent, JSX} from 'react';
 import styles from './MainPageLayout.module.css'
 import {MainPageLayoutProps} from "@/layouts/MainLayout/MainPageLayout.props";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import Header from "@/templates/Header/Header";
+import Footer from "@/templates/Footer/Footer";
 
 const MainPageLayout = ({children}: MainPageLayoutProps): JSX.Element => {
     return (

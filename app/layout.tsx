@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ReduxProvider from "@/redux/ReduxProvider/ReduxProvider";
+import ReduxProvider from "@/processes/redux/ReduxProvider/ReduxProvider";
 import {PersistGate} from "redux-persist/integration/react";
-import {persister} from "@/redux/store";
+import {persister} from "@/processes/redux/store";
 
 export const metadata: Metadata = {
   title: "School-Languages",

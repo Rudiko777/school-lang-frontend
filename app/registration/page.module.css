@@ -1,0 +1,17 @@
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.registrationTitle{
+    width: 100%;
+}
+
+.registrationActions{
+    margin-bottom: 10px;
+}
+
+.gendersBlock{
+    display: flex;
+    justify-content: space-between;
+}

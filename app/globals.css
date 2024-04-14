@@ -1,21 +1,21 @@
 @font-face {
   font-family: "Gilroy-Regular";
-  src: url("../fonts/gilroy-regular.ttf");
+  src: url("../public/fonts/gilroy-regular.ttf");
 }
 
 @font-face {
   font-family: "Gilroy-Black";
-  src: url("../fonts/gilroy-black.ttf");
+  src: url("../public/fonts/gilroy-black.ttf");
 }
 
 @font-face {
   font-family: "Gilroy-Heavy";
-  src: url("../fonts/gilroy-heavy.ttf");
+  src: url("../public/fonts/gilroy-heavy.ttf");
 }
 
 @font-face {
   font-family: "Gilroy-Bold";
-  src: url("../fonts/gilroy-bold.ttf");
+  src: url("../public/fonts/gilroy-bold.ttf");
 }
 
 :root {
@@ -161,3 +161,25 @@ select {
   width: 12px !important;
   height: 12px !important;
 }
+
+.splide__pagination__page.is-active{
+  background-color: var(--white) !important;
+  width: 20px !important;
+  height: 20px !important;
+  outline: 2px solid var(--purple);
+  margin-right: 16px;
+  margin-left: 16px;
+  position: relative;
+}
+
+.splide__pagination__page.is-active::after{
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  height: 12px;
+  border-radius: 50%;
+  width: 12px;
+  background-color: var(--purple);
+}
+

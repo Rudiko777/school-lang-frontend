@@ -1,0 +1,6 @@
+.shortListContainer{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 20px;
+}
