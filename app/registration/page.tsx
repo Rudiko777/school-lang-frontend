@@ -64,7 +64,6 @@ const Page = () => {
         formData.append("login", login);
         formData.append("email", email)
 
-        console.log(formData.get("gender"))
 
         fetch("http://localhost:8080/api/v1/apps/registration", {
             method: "POST",
@@ -72,7 +71,7 @@ const Page = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                window.location.href = "/"
+                window.location.href = "/login"
             })
             .catch((error) => {
                 console.error("Ошибка:", error);

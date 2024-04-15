@@ -1,4 +1,5 @@
-import React from 'react';
+'use client'
+import React, {useState} from 'react';
 import styles from './page.module.css'
 import Logo from '../../public/login/logo.svg'
 import ButtonSocial from "@/shared/ui-kit/ButtonSocial/ButtonSocial";
@@ -10,7 +11,49 @@ import Ptag from "@/shared/ui-kit/P/Ptag";
 import Input from "@/shared/ui-kit/Input/Input";
 import Button from "@/shared/ui-kit/Button/Button";
 
+interface Token{
+    token: string
+}
+
 const Page = () => {
+    const[data, setData] = useState({
+        fullName: "",
+        password: ""
+    })
+
+    const handleFullNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setData({
+            ...data,
+            fullName: event.target.value
+        })
+    }
+
+    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setData({
+            ...data,
+            password: event.target.value
+        })
+    }
+
+    async function handleClick(){
+        localStorage.clear()
+
+        const res = await fetch("http://localhost:8080/api/v1/apps/auth", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        if (res.ok){
+            const json: Token = await res.json()
+            console.log(json.token)
+            localStorage.setItem("token", json.token)
+            window.location.href = "/"
+        }
+    }
+
     return (
         <div className={styles.block}>
             <div className={styles.contentLogin}>
@@ -26,9 +69,9 @@ const Page = () => {
                     </Ptag>
                 </div>
                 <div className={styles.loginActions}>
-                    <Input placeholder={'Test или test@mail.ru'} inputSize={'small'} state={'default'} type={'tel'} label={'Логин или e-mail'}/>
-                    <Input placeholder={'Password'} inputSize={'small'} state={'default'} type={'password'} label={'Пароль'}/>
-                    <Button size={'large'} typeBtn={'contained'} color={'purple'} className={styles.continue}>
+                    <Input placeholder={'Test или test@mail.ru'} inputSize={'small'} state={'default'} type={'tel'} label={'Логин или e-mail'} onChange={handleFullNameChange}/>
+                    <Input placeholder={'Password'} inputSize={'small'} state={'default'} type={'password'} label={'Пароль'} onChange={handlePasswordChange}/>
+                    <Button onClick={handleClick} size={'large'} typeBtn={'contained'} color={'purple'} className={styles.continue}>
                         Продолжить
                     </Button>
                 </div>
