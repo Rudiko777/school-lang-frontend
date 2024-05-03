@@ -10,16 +10,20 @@ import Htag from "@/shared/ui-kit/Htag/Htag";
 import Ptag from "@/shared/ui-kit/P/Ptag";
 import Input from "@/shared/ui-kit/Input/Input";
 import Button from "@/shared/ui-kit/Button/Button";
+import {useDispatch} from "react-redux";
+import {actions} from "@/processes/redux/FeaturesCourses/User.slice";
 
 interface Token{
     token: string
+    user: any
 }
 
 const Page = () => {
     const[data, setData] = useState({
         fullName: "",
-        password: ""
+        password: "",
     })
+    const dispatch = useDispatch()
 
     const handleFullNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData({
@@ -45,11 +49,35 @@ const Page = () => {
                 "Content-Type": "application/json"
             }
         })
-
         if (res.ok){
             const json: Token = await res.json()
-            console.log(json.token)
             localStorage.setItem("token", json.token)
+            const {
+                id,
+                fullName,
+                password,
+                phoneNumber,
+                email,
+                gender,
+                login,
+                birthday,
+                confirmPassword,
+                languageCourses,
+                roles
+            } = json.user
+            dispatch(actions.addUser({
+                id,
+                fullName,
+                password,
+                phoneNumber,
+                email,
+                gender,
+                login,
+                birthday,
+                confirmPassword,
+                languageCourses,
+                roles
+            }))
             window.location.href = "/"
         }
     }

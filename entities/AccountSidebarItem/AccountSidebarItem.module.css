@@ -1,0 +1,17 @@
+.container{
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    border-radius: 0.62rem;
+    align-items: center;
+    transition: all 0.3s ease-in-out ;
+}
+
+/*@keyframes animationScroll {*/
+/*    0%{*/
+/*        background-color: var(--secondary-purple-light);*/
+/*    }*/
+/*    100%{*/
+/*        margin-top: 50px;*/
+/*    }*/
+/*}*/

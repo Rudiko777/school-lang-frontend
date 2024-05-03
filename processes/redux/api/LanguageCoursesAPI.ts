@@ -17,11 +17,13 @@ export const languageCoursesAPI = createApi({
     }),
     endpoints: (builder) => ({
         getLanguageCourses: builder.query<ILanguageCourses[], void>({query: () => ''}),
-        getLanguageCourseById: builder.query<ILanguageCourses, number>({query: (courseId) => `/${courseId}`})
+        getLanguageCourseById: builder.query<ILanguageCourses, number>({query: (courseId) => `/${courseId}`}),
+        getLanguageCoursesByUser: builder.query<ILanguageCourses[], number>({query: (userId: number | null) => `/find-by-ids/${userId}`})
     })
 })
 
 export const {
     useGetLanguageCoursesQuery,
-    useGetLanguageCourseByIdQuery
+    useGetLanguageCourseByIdQuery,
+    useGetLanguageCoursesByUserQuery
 } = languageCoursesAPI;

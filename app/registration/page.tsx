@@ -9,6 +9,8 @@ import Ptag from "@/shared/ui-kit/P/Ptag";
 import Input from "@/shared/ui-kit/Input/Input";
 import Button from "@/shared/ui-kit/Button/Button";
 import RadioBtn from "@/shared/ui-kit/Radio/RadioBtn";
+import {useDispatch} from "react-redux";
+import {actions} from "@/processes/redux/FeaturesCourses/User.slice";
 
 const Page = () => {
     const[fullName, setFullName] = useState('')
@@ -64,7 +66,6 @@ const Page = () => {
         formData.append("login", login);
         formData.append("email", email)
 
-
         fetch("http://localhost:8080/api/v1/apps/registration", {
             method: "POST",
             body: formData,
@@ -76,6 +77,8 @@ const Page = () => {
             .catch((error) => {
                 console.error("Ошибка:", error);
             });
+
+
     }
 
     return (

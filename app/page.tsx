@@ -5,7 +5,7 @@ import Button from "@/shared/ui-kit/Button/Button";
 import {withMainPageLayout} from "@/layouts/MainLayout/MainPageLayout";
 import ClipBtn from "@/shared/ui-kit/ClipBtn/ClipBtn";
 import promo from '../public/mainPage/Promo.png'
-import {JSX} from "react";
+import {JSX, useEffect} from "react";
 import Htag from "@/shared/ui-kit/Htag/Htag";
 import Ptag from "@/shared/ui-kit/P/Ptag";
 import CourseItem from "@/entities/CourseItem/CourseItem";

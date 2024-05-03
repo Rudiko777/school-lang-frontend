@@ -19,6 +19,8 @@ const Htag = ({children, type, className, ...props}: HtagProps):JSX.Element => {
             return <h3 className={cn(styles.h3WhoseLang, className)} {...props}>{children}</h3>;
         case 'h3-footer':
             return <h3 className={cn(styles.h3Footer, className)} {...props}>{children}</h3>
+        case 'h3-sidebar':
+            return <h3 className={cn(styles.h3Sidebar, className)} {...props}>{children}</h3>
         default:
             return <></>
     }

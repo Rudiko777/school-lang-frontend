@@ -58,3 +58,11 @@
     line-height: 133%;
     color: #fff;
 }
+
+.h3Sidebar{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 133%;
+    color: var(--text);
+}

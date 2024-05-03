@@ -1,0 +1,40 @@
+.wrapper{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.title{
+    position: relative;
+    outline: 1px solid var(--purple);
+    border-radius: 50%;
+    color: var(--purple);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 133%;
+    padding: 14px;
+    font-family: var(--ff-gilroy-bold);
+    user-select: none;
+}
+
+.titleBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 14px;
+}
+
+.chevron{
+    cursor: pointer;
+    transition: all 0.3s linear
+}
+
+.chevron path{
+    stroke: var(--purple);
+}
+
+.chevronActive{
+    transform: rotate(180deg);
+}

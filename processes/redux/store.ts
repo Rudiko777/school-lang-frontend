@@ -13,9 +13,11 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import {TargetAudienceAPI} from "@/processes/redux/api/TargetAudienceAPI";
+import {UserSlice} from "@/processes/redux/FeaturesCourses/User.slice";
 
 const rootReducer = combineReducers({
     featuresCourses: featuresCoursesSlice.reducer,
+    user: UserSlice.reducer,
     [languageCoursesAPI.reducerPath]: languageCoursesAPI.reducer,
     [TargetAudienceAPI.reducerPath]: TargetAudienceAPI.reducer
 })
