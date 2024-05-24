@@ -31,7 +31,7 @@ export const AccountSidebarItem = ({content, ...props}: AccountSidebarItemProps)
                 switchHref("/lk/courses")
                 break
             case "Дополнительные материалы":
-                switchHref("/lk/matherials")
+                switchHref("/lk/materials")
                 break
             case "Чаты":
                 switchHref("/lk/chats")
@@ -51,15 +51,17 @@ export const AccountSidebarItem = ({content, ...props}: AccountSidebarItemProps)
     }, [])
 
     useEffect(() => {
-        console.log(path)
+        if (path === href){
+            setActive(true)
+        }
     }, [href]);
 
     return (
         <>
-            <Link href={href}>
-                <li className={cn(styles.container, {
-                    [styles.active]: active
-                })} {...props}>
+            <li className={cn(styles.transparent, {
+                [styles.active]: active
+            })} {...props}>
+                <Link className={styles.container} href={href}>
                     {
                         content === "Главная" ? <House className={active ? styles.activeHomeImg : undefined}/> :
                             content === "Курсы" ? <Courses className={active ? styles.activeArticleImg : undefined}/> :
@@ -72,8 +74,8 @@ export const AccountSidebarItem = ({content, ...props}: AccountSidebarItemProps)
                     <Htag type={'h3-sidebar'}>
                         {content}
                     </Htag>
-                </li>
-            </Link>
+                </Link>
+            </li>
         </>
     )
 }

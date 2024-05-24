@@ -60,7 +60,7 @@
 
 .secretMenu{
     position: absolute;
-    bottom: -157px;
+    bottom: -202px;
     z-index: 10;
     left: -52px;
     opacity: 0; /* Начальное значение прозрачности */

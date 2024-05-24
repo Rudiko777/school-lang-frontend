@@ -21,8 +21,10 @@
     transition: height 0.3s;
 }
 
-
-
 .accordionCollapse.activeDesc{
     height: auto;
+}
+
+.btn{
+    width: 100%;
 }

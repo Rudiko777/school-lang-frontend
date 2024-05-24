@@ -1,27 +1,77 @@
-import React, {JSX} from 'react';
-import styles from './Textarea.module.css'
-import {TextareaProps} from "@/shared/ui-kit/Textarea/Textarea.props";
-import cn from 'classnames'
+'use client'
+import cn from "classnames"
+import React, { useEffect, useState } from "react"
+import styles from "./Textarea.module.css"
+import {TextareaProps} from "./Textarea.props";
 
-const Textarea = ({name, label, className, value, hint, placeholder, ...props}: TextareaProps): JSX.Element => {
+const Textarea = ({
+                             state = "default",
+                             hint,
+                             label,
+                             className,
+                             type,
+                             value,
+                             onChange,
+                             placeholder,
+                             ...props
+                         }: TextareaProps) => {
 
+    const [inputValue, setInputValue] = useState(value || "")
+    const [isFilled, setIsFilled] = useState(!!value)
+    const [isFocused, setIsFocused] = useState(false)
+    const [textareaHeight, setTextareaHeight] = useState("")
+
+    useEffect(() => {
+        setInputValue(value || "")
+        setIsFilled(!!value)
+    }, [value])
+    const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setInputValue(event.target.value)
+        if (onChange) {
+            onChange(event)
+        }
+    }
+
+    const handleBlur = () => {
+        setIsFilled(inputValue !== "")
+        setIsFocused(false)
+    }
+
+    const handleFocus = () => {
+        setIsFocused(true)
+    }
+
+    const isDisabledEmpty = state === "disabled-empty"
+    const isDisabledFilled = state === "disabled-filled"
+
+    useEffect(() => {
+        const textarea = document.getElementById("Textarea")
+        if (textarea){
+            textarea.style.height = "auto"
+            textarea.style.height = textarea.scrollHeight + "px"
+            setTextareaHeight(textarea.style.height)
+        }
+    }, [inputValue])
 
     return (
-        <div className={styles.wrapper}>
-            {!label || label === "" || label === undefined ? (
-                <></>
-            ) : (
-                <label
-                    className={cn(styles.label, {
-                    })}
-                    htmlFor={name}
-                >
-                    {label}
-                </label>)}
-            <div>
+        <>
+            <div className={cn(styles.inputWrapper, className)}>
+                {!label || label === "" || label === undefined ? (
+                    <></>
+                ) : (
+                    <label
+                        className={cn(styles.label, {
+                            [styles.label_disabled_filled]: state === "disabled-filled",
+                            [styles.label_disabled_empty]: state === "disabled-empty",
+                            [styles.label_focused]: isFocused,
+                        })}
+                    >
+                        {label}
+                    </label>)}
+                <div>
           <textarea
-              id={name}
-              className={cn(styles.input, {
+              id="Textarea"
+              className={cn(styles.input, styles.textArea, className, {
                   [styles.default]: state === "default",
                   [styles.filled]: isFilled,
                   [styles.error_filled]: state === "error-filled",
@@ -29,6 +79,7 @@ const Textarea = ({name, label, className, value, hint, placeholder, ...props}: 
                   [styles.disabled_filled]: isDisabledFilled,
                   className
               })}
+              placeholder={placeholder}
               value={inputValue}
               onChange={handleInputChange}
               onBlur={handleBlur}
@@ -37,12 +88,11 @@ const Textarea = ({name, label, className, value, hint, placeholder, ...props}: 
               rows={1}
               {...props}
           />
-            </div>
-            {!hint || hint === "" || hint === undefined ? (
-                <></>
-            ) : (
-                <p
-                    className={cn(styles.p, className, {
+                </div>
+                {!hint || hint === "" || hint === undefined ? (
+                    <></>
+                ) : (
+                    <p className={cn(styles.p, {
                         [styles.p_default]: state === "default",
                         [styles.p_focus]: isFocused,
                         [styles.p_filled]: isFilled,
@@ -50,13 +100,13 @@ const Textarea = ({name, label, className, value, hint, placeholder, ...props}: 
                         [styles.p_disabled_empty]: state === "disabled-empty",
                         [styles.p_disabled_filled]: state === "disabled-filled",
                     })}
-                    {...props}
-                >
-                    {hint}
-                </p>
-            )}
-        </div>
-    );
-};
+                    >
+                        {hint}
+                    </p>
+                )}
+            </div>
+        </>
+    )
+}
 
 export default Textarea;

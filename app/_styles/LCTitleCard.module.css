@@ -1,0 +1,36 @@
+.container{
+    border-radius: 1.25rem;
+    background-color: var(--purple---secondry);
+    padding: 40px;
+}
+
+.imgContainer{
+    display: inline-flex;
+    border: 10px solid #fff;
+    border-radius: 6.38rem;
+}
+
+.mainInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.high{
+    font-weight: 600;
+    font-family: var(--ff-gilroy-bold);
+    font-size: 2rem;
+}
+
+.highWeight{
+    font-weight: 600;
+    font-family: var(--ff-gilroy-bold);
+}
+
+.advCardList{
+    margin: 16px 0;
+}
+
+.btn{
+    width: 100%;
+}

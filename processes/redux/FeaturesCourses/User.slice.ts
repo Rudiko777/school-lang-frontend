@@ -14,7 +14,7 @@ export interface UserProps{
     password: string,
     confirmPassword: string,
     languageCourses: number[]
-    roles: any[]
+    roles: any[],
 }
 
 const initialState: UserProps | null = {

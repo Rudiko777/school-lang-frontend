@@ -2,8 +2,26 @@
     padding: 12px;
     display: flex;
     gap: 10px;
-    border-radius: 0.62rem;
     align-items: center;
+}
+
+.transparent{
+    background-color: transparent;
+    border-radius: 0.62rem;
+    transition: all 0.3s ease-in-out ;
+}
+
+.active{
+    background-color: var(--purple---secondry);
+}
+
+.active a h3{
+    color: var(--purple);
+}
+
+.activeHomeImg path{
+    fill: #78258d;
+    stroke: #78258d;
     transition: all 0.3s ease-in-out ;
 }
 

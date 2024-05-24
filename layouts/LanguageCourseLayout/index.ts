@@ -1,0 +1,1 @@
+export {LanguageCourseLayout} from './ui.tsx'

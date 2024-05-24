@@ -8,6 +8,12 @@ import {
     useGetLanguageCoursesByUserQuery
 } from "@/processes/redux/api/LanguageCoursesAPI";
 import {useLoadByData} from "@/shared/hooks/useLoadByData";
+import Htag from "@/shared/ui-kit/Htag/Htag.tsx";
+import Link from "next/link";
+import Button from "@/shared/ui-kit/Button/Button.tsx";
+import cn from "classnames";
+import CourseItem from "@/entities/CourseItem/CourseItem.tsx";
+import styles from './page.module.css'
 
 const Page = () => {
     const userId: number | null = useTypedSelector(state => state.user.id)
@@ -18,17 +24,37 @@ const Page = () => {
     }, [data]);
 
     return (
-        <div>
-            {data?.map((el: ILanguageCourses, idx: number) => {
-                return(
-                    <div key={idx}>
-                        <h1>{el.title}</h1>
-                        <h2>{el.duration}</h2>
-                        <h3>{el.level}</h3>
-                    </div>
-                )
-            })}
+        <div className={styles.wrapper}>
+            <div className={styles.articlesTitle}>
+                <Htag type={"h2-ourCourse"}>
+                    Ваши курсы
+                </Htag>
+                <Link href={"/Catalog"}>
+                    <Button color={"purple"} size={"large"} typeBtn={"outlined"} className={styles.articlesTitleBtn}>
+                        Все курсы
+                    </Button>
+                </Link>
+            </div>
+            <div className={styles.latestArticles}>
+                <div className={cn(styles.Content, styles.otherCourseWrapper)}>
+                    {
+                        data.map((el, idx) => <CourseItem
+                            className={cn(styles.otherCourse, {
+                                [styles.last]: data.length % 2 != 0 && idx + 1 == data.length
+                            })}
+                            key={el.id}
+                            idCourse={el.id}
+                            title={el.title}
+                            language={el.language}
+                            duration={el.duration}
+                            quantityModules={el.quantityModules}
+                            price={el.price}
+                        />)
+                    }
+                </div>
+            </div>
         </div>
+
     );
 };
 

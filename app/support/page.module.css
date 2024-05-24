@@ -1,0 +1,56 @@
+.langTitle{
+    color: var(--purple)
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.img{
+    margin-top: 126px;
+}
+
+.descSupport{
+    margin-top: 10px;
+    max-width: 585px;
+}
+
+.allinfo{
+    margin-top: 50px;
+}
+
+.allInfoDesc{
+    margin-top: 24px;
+}
+
+.formSupportDesc{
+    margin-top: 12px;
+}
+
+.formSupportContainer{
+    margin-top: 70px;
+}
+
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "name tel"
+    "place place";
+    grid-gap: 24px;
+    margin-bottom: 24px;
+}
+
+.name{
+    grid-area: name;
+}
+
+.tel{
+    grid-area: tel;
+}
+
+.place{
+    grid-area: place;
+}

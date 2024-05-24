@@ -9,7 +9,9 @@ const Ptag = ({children, type, className, ...props}: PProps): JSX.Element => {
             [styles.largeDesc]: type === 'large-desc',
             [styles.largeAdv]: type === 'large-adv',
             [styles.medium]: type === 'medium',
-            [styles.small]: type === 'small'
+            [styles.small]: type === 'small',
+            [styles.titleCard]: type === 'titleCard',
+            [styles.descSupport]: type === 'descSupport'
         })}>
             {children}
         </p>

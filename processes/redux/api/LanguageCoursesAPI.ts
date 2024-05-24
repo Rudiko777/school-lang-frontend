@@ -1,4 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import {CourseModuleProps} from "@/app/_types";
+import {CourseReviewProps} from "@/app/_types/CourseReview.props.ts";
 
 export interface ILanguageCourses{
     id: number
@@ -7,7 +9,9 @@ export interface ILanguageCourses{
     level: string,
     duration: number,
     quantityModules: number,
-    price: number
+    price: number,
+    modules: CourseModuleProps[],
+    reviews: CourseReviewProps[],
 }
 
 export const languageCoursesAPI = createApi({

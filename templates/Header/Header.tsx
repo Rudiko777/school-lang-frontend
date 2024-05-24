@@ -1,5 +1,5 @@
 'use client'
-import React, {JSX, useCallback, useEffect, useState} from 'react';
+import React, {JSX, useCallback, useEffect, useLayoutEffect, useMemo, useState} from 'react';
 import {HeaderProps} from "@/templates/Header/Header.props";
 import cn from "classnames";
 import styles from './Header.module.css'
@@ -11,7 +11,7 @@ import Link from "next/link";
 import {router} from "next/client";
 import {useDispatch} from "react-redux";
 import {actions as userActions} from "@/processes/redux/FeaturesCourses/User.slice";
-import {actions, actions as featureActions} from "@/processes/redux/FeaturesCourses/FeaturesCourses.slice";
+import {actions as featureActions} from "@/processes/redux/FeaturesCourses/FeaturesCourses.slice";
 import {useTypedSelector} from "@/processes/redux/FeaturesCourses/SelectorCourses";
 import {
     ILanguageCourses,
@@ -20,44 +20,54 @@ import {
 } from "@/processes/redux/api/LanguageCoursesAPI";
 import {useLoadByData} from "@/shared/hooks/useLoadByData";
 import {useIsAdmin} from "@/shared/hooks/useIsAdmin";
+import {actions as tokenUtilsActions} from "@/processes/redux/FeaturesCourses/TokenUtils.slice.ts";
+import {useIsTokenSelector} from "@/shared/hooks/useIsTokenSelector.ts";
+import {actions as scoreActions} from "@/processes/redux/FeaturesCourses/ScoreStudent.slice.ts";
 
 const Header = ({className, ...props}: HeaderProps): JSX.Element => {
     const[item, setItem] = useState<string | null>(null)
     const dispatch = useDispatch()
     const isAdmin: boolean = useIsAdmin()
-    // const array: number[] = useLoadByData()
+    const isToken: boolean = useIsTokenSelector()
+    const token = useTypedSelector(state => state.token?.token)
 
-    useEffect(() => {
-        if (localStorage.getItem("token")){
-            fetchContent().then(() => {
-                setItem(localStorage.getItem("token"))
-                // let array = favorites?.map((el) => el?.id)
-                // user?.languageCourses.forEach((el, index) => {
-                //     if (!array?.includes(el) && data){
-                //         console.log("hahah")
-                //         console.log(data[index])
-                //         dispatch(featureActions.toggleCartCourses(data[index]))
-                //     }
-                // })
-                // setFetched(true)
-            })
-        }
-    }, []);
-
-    async function fetchContent(){
-        const res = await fetch("http://localhost:8080/info", {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("token")
-            },
-        })
-        if (!res.ok) {
-            localStorage.removeItem("token")
+    useLayoutEffect(() => {
+        if (isToken){
+            fetchContent()
+                .then(() => {setItem(token)})
+                .catch(() => {
+                    dispatch(userActions.deleteUser())
+                    dispatch(featureActions.deleteFeatures())
+                    dispatch(tokenUtilsActions.clearToken())
+                    dispatch(scoreActions.clearStudent())
+                    setItem(null)
+                })
+        } else {
             dispatch(userActions.deleteUser())
             dispatch(featureActions.deleteFeatures())
+            dispatch(tokenUtilsActions.clearToken())
+            dispatch(scoreActions.clearStudent())
         }
+    }, [isToken, token]);
 
-    }
+    const fetchContent = useCallback(async () => {
+        try {
+            const res = await fetch("http://localhost:8080/info", {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token,
+                },
+            });
+
+            if (!res.ok) {
+                throw new Error("Error");
+            }
+
+            // Продолжайте обработку успешного ответа здесь
+        } catch (error) {
+            throw new Error("Error");
+        }
+    }, [token]);
 
     return (
         <header className={cn(styles.header, className)} {...props}>

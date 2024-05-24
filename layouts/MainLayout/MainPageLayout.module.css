@@ -21,3 +21,9 @@
 .footer{
     grid-area: footer
 }
+
+@media screen and (max-width: 1800px){
+    .wrapper{
+        grid-template-columns: 150px minmax(320px, 1440px) 150px !important;
+    }
+}

@@ -1,0 +1,8 @@
+.filled{
+    fill: var(--purple);
+}
+
+.star{
+    cursor: pointer;
+    margin-right: 5px;
+}

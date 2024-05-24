@@ -1,0 +1,1 @@
+export {CourseModuleProps} from './CourseModule.props.ts'

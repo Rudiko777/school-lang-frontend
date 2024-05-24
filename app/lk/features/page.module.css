@@ -1,0 +1,36 @@
+.wrapper{
+    margin-top: 50px;
+}
+
+.latestArticles{
+    margin: 38px 0;
+    background-color: var(--white);
+    border-radius: 1.25rem;
+    padding: 30px;
+}
+
+.articlesTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.articlesTitleBtn{
+    width: 7rem;
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+.otherCourse{
+    margin: 0;
+}
+
+.otherCourseWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.last{
+    grid-column: span 2;
+}

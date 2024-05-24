@@ -1,0 +1,57 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: auto minmax(320px, 400px);
+    grid-column-gap: 40px;
+}
+
+.article{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.afterCourseTitle{
+    margin-bottom: 15px;
+}
+
+.afterCourseList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.courseProgramm{
+    margin-top: 50px;
+}
+
+.writeReview,
+.reviews{
+    margin-top: 50px;
+}
+
+.grade{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.formReview{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reviewsBlocks{
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bestStudents{
+    margin-top: 50px;
+}
+
+.bestStudents ul{
+    margin-top: 32px;
+}

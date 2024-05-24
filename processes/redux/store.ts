@@ -14,12 +14,20 @@ import {
 import storage from 'redux-persist/lib/storage'
 import {TargetAudienceAPI} from "@/processes/redux/api/TargetAudienceAPI";
 import {UserSlice} from "@/processes/redux/FeaturesCourses/User.slice";
+import {TokenUtilsSlice} from "@/processes/redux/FeaturesCourses/TokenUtils.slice.ts";
+import {BestStudentsAPI} from "@/processes/redux/api/BestStudentsAPI.ts";
+import {FilterLevelSlice} from "@/processes/redux/FeaturesCourses/FilterLevel.slice.ts";
+import {ScoreStudentSlice} from "@/processes/redux/FeaturesCourses/ScoreStudent.slice.ts";
 
 const rootReducer = combineReducers({
     featuresCourses: featuresCoursesSlice.reducer,
     user: UserSlice.reducer,
+    token: TokenUtilsSlice.reducer,
+    filterLevel: FilterLevelSlice.reducer,
+    studentEducation: ScoreStudentSlice.reducer,
     [languageCoursesAPI.reducerPath]: languageCoursesAPI.reducer,
-    [TargetAudienceAPI.reducerPath]: TargetAudienceAPI.reducer
+    [TargetAudienceAPI.reducerPath]: TargetAudienceAPI.reducer,
+    [BestStudentsAPI.reducerPath]: BestStudentsAPI.reducer
 })
 
 const persistConfig = {
@@ -36,7 +44,7 @@ export const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
             },
-        }).concat(languageCoursesAPI.middleware, TargetAudienceAPI.middleware),
+        }).concat(languageCoursesAPI.middleware, TargetAudienceAPI.middleware, BestStudentsAPI.middleware),
     devTools: process.env.NODE_ENV !== "production"
 })
 

@@ -11,7 +11,9 @@ import Ptag from "@/shared/ui-kit/P/Ptag";
 import Input from "@/shared/ui-kit/Input/Input";
 import Button from "@/shared/ui-kit/Button/Button";
 import {useDispatch} from "react-redux";
-import {actions} from "@/processes/redux/FeaturesCourses/User.slice";
+import {actions as userActions} from "@/processes/redux/FeaturesCourses/User.slice";
+import {actions as tokenUtilsActions} from "@/processes/redux/FeaturesCourses/TokenUtils.slice.ts";
+import {useRouter} from "next/navigation";
 
 interface Token{
     token: string
@@ -24,6 +26,7 @@ const Page = () => {
         password: "",
     })
     const dispatch = useDispatch()
+    const router = useRouter()
 
     const handleFullNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData({
@@ -51,7 +54,10 @@ const Page = () => {
         })
         if (res.ok){
             const json: Token = await res.json()
-            localStorage.setItem("token", json.token)
+            if (json.token){
+                dispatch(tokenUtilsActions.saveToken(json.token))
+            }
+
             const {
                 id,
                 fullName,
@@ -65,7 +71,7 @@ const Page = () => {
                 languageCourses,
                 roles
             } = json.user
-            dispatch(actions.addUser({
+            dispatch(userActions.addUser({
                 id,
                 fullName,
                 password,
@@ -78,7 +84,7 @@ const Page = () => {
                 languageCourses,
                 roles
             }))
-            window.location.href = "/"
+            router.push("/")
         }
     }
 
@@ -105,11 +111,6 @@ const Page = () => {
                 </div>
                 <div className={styles.or}>
                     <span className={styles.orLeft}></span><span className={styles.orContent}>или</span><span className={styles.orRight}></span>
-                </div>
-                <div className={styles.socialBlock}>
-                    <ButtonSocial social={'vk'}/>
-                    <ButtonSocial social={'yandex'}/>
-                    <ButtonSocial social={'gos'}/>
                 </div>
                 <div className={styles.registration}>
                     <Ptag type={'medium'}>

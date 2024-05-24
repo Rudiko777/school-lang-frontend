@@ -7,10 +7,11 @@ interface ICheckBox extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputEleme
     children: ReactNode
 }
 
-const CheckBox = ({isChecked, children, className, ...props}: ICheckBox) => {
+const CheckBox = ({isChecked, children, className, name, ...props}: ICheckBox) => {
     return (
         <label className={cn(styles.wrapper, className)}>
             <input
+                name={name}
                 type={"checkbox"}
                 checked={isChecked}
                 className={styles.checkBox}

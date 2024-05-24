@@ -30,3 +30,21 @@
     letter-spacing: 0.01em;
     color: #fff;
 }
+
+.titleCard{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: #333;
+}
+
+.descSupport{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    color: var(--text);
+}

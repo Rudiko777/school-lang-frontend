@@ -5,9 +5,9 @@ import LanguageCourse from "@/entities/LanguageCourse/LanguageCourse";
 
 const Page = ({params}: {params: {id: number}}) => {
     return (
-        <div>
+        <>
             <LanguageCourse id={params.id}/>
-        </div>
+        </>
     );
 };
 

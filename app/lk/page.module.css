@@ -1,0 +1,74 @@
+.avatarWrapper{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.lang{
+    color: var(--purple)
+}
+
+.description{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+    margin-top: 91px;
+}
+
+.courses{
+    margin-top: 100px;
+    background-color: var(--white);
+    border-radius: 1.25rem;
+}
+
+.coursesTitle,
+.articlesTitle{
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--purple---secondry);
+}
+
+.articlesTitle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Content{
+    padding: 30px 40px;
+}
+
+.itemCourse{
+    display: flex;
+    justify-content: space-between;
+}
+
+.articlesTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.latestArticles{
+    margin: 38px 0;
+    background-color: var(--white);
+    border-radius: 1.25rem;
+}
+
+.articlesTitleBtn{
+    width: 7rem;
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+.otherCourse{
+    margin: 0;
+}
+
+.otherCourseWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.last{
+    grid-column: span 2;
+}

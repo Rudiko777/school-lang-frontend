@@ -19,11 +19,24 @@ import LevelFilter from "@/features/LevelFilter/LevelFilter";
 import ButtonAccordion from "@/shared/ui-kit/ButtonAccordion/ButtonAccordion";
 import Accordion from "@/widgets/Accordion/Accordion";
 import AccordionItem from "@/widgets/Accordion/Accordion";
+import {decode} from "jsonwebtoken";
+import {useGetLanguageCourseByIdQuery} from "@/processes/redux/api/LanguageCoursesAPI.ts";
+import Link from "next/link";
 
 function Home(): JSX.Element {
-  const {data, isLoading, isError} = useGetTargetAudienceQuery()
+    const {data, isLoading, isError} = useGetTargetAudienceQuery()
 
-  return (
+
+    useEffect(() => {
+        if (localStorage.getItem("token") !== null){
+            const token = localStorage.getItem("token")
+            if (token !== null){
+                console.log(decode(token))
+            }
+        }
+    }, []);
+
+    return (
     <>
         <section className={styles.promo}>
             <div className={styles.promoContent}>
@@ -76,62 +89,6 @@ function Home(): JSX.Element {
                 </div>
             </div>
         </section>
-        <LevelFilter/>
-        <Accordion/>
-        <CourseItem
-            title={"Немецкий для начального уровня"}
-            language={"Немецкий"}
-            duration={45}
-            quantityModules={3}
-            price={6520}
-        />
-        <ClipBtn>
-            Посмотреть промо-ролик
-        </ClipBtn>
-        <Button size={'large'} typeBtn={'contained'} action={'simple'} color={'purple'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'medium'} typeBtn={'outlined'} action={'add'} color={'purple'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'small'} typeBtn={'ghost'} action={'simple'} color={'purple'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'small'} typeBtn={'contained'} action={'add'} color={'red'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'medium'} typeBtn={'outlined'} action={'add'} color={'red'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'large'} typeBtn={'ghost'} action={'add'} color={'red'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'small'} typeBtn={'contained'} action={'add'} color={'blue'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'medium'} typeBtn={'outlined'} action={'simple'} color={'blue'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'large'} typeBtn={'ghost'} action={'add'} color={'blue'}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'small'} typeBtn={'contained'} disabled={true}>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'medium'} typeBtn={'outlined'} disabled>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'large'} typeBtn={'ghost'} disabled>
-            Попробовать бесплатно
-        </Button>
-        <Button size={'medium'} typeBtn={'contained'} color={'purple'}>
-            Начать обучение
-        </Button>
-        <Input placeholder={'Placeholder'} inputSize={'large'} state={'default'} type={'text'} label={"Label"} hint={"hint"}/>
-        <Input placeholder={'Placeholder'} inputSize={'small'} state={'default'} type={'text'} label={"Label"} hint={"hint"}/>
-        <Input placeholder={'Placeholder'} inputSize={'large'} state={'default'} type={'password'} label={"Label"} hint={"hint"}/>
-        <Input placeholder={'Placeholder'} inputSize={'large'} state={'errorFilled'} type={'text'} label={"Label"} hint={"hint"}/>
-        <Input placeholder={'Placeholder'} inputSize={'large'} state={'successFilled'} type={'text'} label={"Label"} hint={"hint"}/>
     </>
   );
 }

@@ -1,32 +1,51 @@
 import React, {ChangeEventHandler, JSX, useState} from 'react';
 import CheckBox from "@/shared/ui-kit/CheckBox/CheckBox";
+import styles from '../../app/_styles/FilterLevels.module.css'
+import {useDispatch} from "react-redux";
+import {actions} from "@/processes/redux/FeaturesCourses/FilterLevel.slice.ts";
+import {useTypedSelector} from "@/processes/redux/FeaturesCourses/SelectorCourses.ts";
 
 const LevelFilter = (): JSX.Element => {
-    const[primary, setPrimary] = useState<boolean>(true)
-    const[medium, setMedium] = useState<boolean>(false)
-    const[hard, setHard] = useState<boolean>(false)
+    const level = Array.from(useTypedSelector(state => state.filterLevel));
+    const dispatch = useDispatch()
 
     const handlePrimaryChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-        setPrimary(event.target.checked);
+        if (level.includes("Начальный")){
+            dispatch(actions.deleteLevel("Начальный"))
+        }
+        else {
+            dispatch(actions.addLevel("Начальный"))
+        }
     };
 
     const handleMediumChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-        setMedium(event.target.checked);
+        if (level.includes("Средний")){
+            dispatch(actions.deleteLevel("Средний"))
+        }
+        else {
+            dispatch(actions.addLevel("Средний"))
+        }
     };
 
     const handleHardChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-        setHard(event.target.checked);
+        if (level.includes("Высокий")){
+            dispatch(actions.deleteLevel("Высокий"))
+        }
+        else {
+            dispatch(actions.addLevel("Высокий"))
+        }
     };
 
+
     return (
-        <div>
-            <CheckBox isChecked={primary} onChange={handlePrimaryChange}>
+        <div className={styles.container}>
+            <CheckBox isChecked={level?.includes("Начальный")} onChange={handlePrimaryChange}>
                 Начальный
             </CheckBox>
-            <CheckBox isChecked={medium} onChange={handleMediumChange}>
+            <CheckBox isChecked={level?.includes("Средний")} onChange={handleMediumChange}>
                 Средний
             </CheckBox>
-            <CheckBox isChecked={hard} onChange={handleHardChange}>
+            <CheckBox isChecked={level?.includes("Высокий")} onChange={handleHardChange}>
                 Высокий
             </CheckBox>
         </div>

@@ -5,7 +5,11 @@ import cn from "classnames";
 import Chevron from '../../public/submenu/chevron-down.svg'
 import Link from "next/link";
 import {useDispatch} from "react-redux";
-import {actions} from "@/processes/redux/FeaturesCourses/User.slice";
+import {actions as userActions} from "@/processes/redux/FeaturesCourses/User.slice";
+import {useRouter} from "next/navigation";
+import {actions as tokenUtilsActions} from "@/processes/redux/FeaturesCourses/TokenUtils.slice.ts";
+import {actions as featureActions} from "@/processes/redux/FeaturesCourses/FeaturesCourses.slice.ts";
+import {actions as scoreActions} from "@/processes/redux/FeaturesCourses/ScoreStudent.slice.ts";
 
 interface AvatarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     fullName: string
@@ -14,21 +18,24 @@ interface AvatarProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, 
 const Avatar = ({fullName, className, ...props}: AvatarProps): JSX.Element => {
     const[active, setActive] = useState<boolean>(false)
     const dispatch = useDispatch()
+    const router = useRouter()
 
     function logout() {
-        localStorage.removeItem("token")
-        dispatch(actions.deleteUser())
-        window.location.href = "/"
+        dispatch(tokenUtilsActions.clearToken())
+        dispatch(userActions.deleteUser())
+        dispatch(featureActions.deleteFeatures())
+        dispatch(scoreActions.clearStudent())
+        router.push("/")
     }
 
     return (
         <>
             <div className={cn(styles.wrapper, className)} {...props}>
-            <span className={styles.title}>
-                <div className={styles.titleBlock}>
-                    {fullName && fullName.charAt(0).toUpperCase()}
-                </div>
-            </span>
+                <span className={styles.title}>
+                    <div className={styles.titleBlock}>
+                        {fullName && fullName.charAt(0).toUpperCase()}
+                    </div>
+                </span>
                 <Chevron
                     className={cn(styles.chevron, {
                         [styles.chevronActive]: active
@@ -37,7 +44,7 @@ const Avatar = ({fullName, className, ...props}: AvatarProps): JSX.Element => {
                 />
             </div>
             {
-                active ? <ul>
+                active ? <ul className={styles.listActivities}>
                     <li>
                         <Link href={"/"} onClick={logout}>
                             Выйти

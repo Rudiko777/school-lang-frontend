@@ -39,6 +39,9 @@ const Submenu = ({children}: SubmenuProps): JSX.Element => {
                     <li className={styles.secretMenuItem}>
                         <Link href={'/termsOfPayment'}>Условия оплаты</Link>
                     </li>
+                    <li className={styles.secretMenuItem}>
+                        <Link href={'/support'}>Служба поддержки</Link>
+                    </li>
                 </ul>
             </div>
         </div>
