@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import Htag from "@/shared/ui-kit/Htag/Htag";
 import Input from "@/shared/ui-kit/Input/Input";
 import Button from "@/shared/ui-kit/Button/Button";
+import {withAdminLayout} from "@/layouts/AdminLayout/AdminLayout.tsx";
 
 const Page = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -123,4 +124,4 @@ const Page = () => {
     );
 };
 
-export default Page;
+export default withAdminLayout(Page);

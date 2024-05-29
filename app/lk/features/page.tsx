@@ -38,7 +38,7 @@ const Page = () => {
             <div className={styles.latestArticles}>
                 <div className={cn(styles.Content, styles.otherCourseWrapper)}>
                     {
-                        data.map((el, idx) => <CourseItem
+                        data.length != 0 ? data.map((el, idx) => <CourseItem
                             className={cn(styles.otherCourse, {
                                 [styles.last]: data.length % 2 != 0 && idx + 1 == data.length
                             })}
@@ -49,7 +49,7 @@ const Page = () => {
                             duration={el.duration}
                             quantityModules={el.quantityModules}
                             price={el.price}
-                        />)
+                        />) : "У вас пока нет курсов"
                     }
                 </div>
             </div>

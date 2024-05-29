@@ -86,7 +86,7 @@ const Page = () => {
                     </div>
                     <div className={styles.Content}>
                         {
-                            data ? data.map((el) =>
+                            data.length != 0 ? data.map((el) =>
                                 <OurCourseItem key={el.id} title={el.title} id={el.id}/>
                             ) : "У вас пока нет курсов"
                         }

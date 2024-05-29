@@ -5,6 +5,9 @@ import ReduxProvider from "@/processes/redux/ReduxProvider/ReduxProvider";
 export const metadata: Metadata = {
   title: "School-Languages",
   description: "School-Languages - best investment",
+  icons: {
+    icon: 'favicon.png'
+  }
 };
 
 

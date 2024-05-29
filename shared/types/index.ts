@@ -1,0 +1,1 @@
+export {type AdminSidebarTab} from './adminSidebarTab.ts'
