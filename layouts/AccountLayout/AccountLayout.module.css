@@ -15,5 +15,5 @@
     grid-area: main;
     min-height: 100vh;
     background-color: var(--purple---secondry);
-    padding: 0 4rem;
+    padding: 4rem 4rem;
 }
