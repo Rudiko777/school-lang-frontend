@@ -4,7 +4,7 @@ import styles from './page.module.css'
 import Button from '@/shared/ui-kit/Button/Button'
 import { withMainPageLayout } from '@/layouts/MainLayout/MainPageLayout'
 import ClipBtn from '@/shared/ui-kit/ClipBtn/ClipBtn'
-import promo from 'public/mainPage/Promo.png'
+import promo from '../public/mainPage/Promo.png'
 import { JSX, useEffect, useState } from 'react'
 import Htag from '@/shared/ui-kit/Htag/Htag'
 import Ptag from '@/shared/ui-kit/P/Ptag'
@@ -13,15 +13,8 @@ import { useGetTargetAudienceQuery } from '@/processes/redux/api/TargetAudienceA
 import Audience from '@/entities/Audience/Audience'
 import { decode } from 'jsonwebtoken'
 
-type ObjectTy = {
-    a: string
-    b: boolean
-}
-
-type Answer = ObjectTy['a']
-
 function Home(): JSX.Element {
-    const { data, isLoading, isError } = useGetTargetAudienceQuery()
+    const { data } = useGetTargetAudienceQuery()
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
